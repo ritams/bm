@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    font-family: poppins, sans-serif;
+    color: rgb(28, 0, 49);
+}
+
+body {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(250, 245, 255);
+}
+
+main {
+    width: 98%;
+    max-width: 700px;
+    /* border: solid red  1px; */
+}
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+h1 {
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+}
+a {
+    text-decoration: none;
+    color: rgb(69, 21, 113);
+}
+.institute {
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+.contact {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+}
+
+/* .phone {
+    display: flex;
+} */
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+.wrapper {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.left {
+    width: 20%;
+    max-width: 250px;
+    /* border: solid black 1px; */
+    font-size: large;
+    font-weight: 600;
+}
+.right {
+    width: 80%;
+    max-width: 500px;
+}
+h2 {
+    margin-bottom: 1rem;
+}
+
+.degree {
+    font-size: large;
+    font-weight: 600;
+}
+.place {
+    font-size: medium;
+    font-weight: 500;
+}
+.percentage {
+    font-size: small;
+    font-weight: 200;
+}
+
+.first-name {
+    color: rgb(133, 30, 229);
+    font-weight: 100;
+}
+.publication {
+    margin-bottom: 0.5rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+.vspace {
+    margin-bottom: 5rem;
+}
