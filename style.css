@@ -106,3 +106,17 @@ h2 {
 .vspace {
     margin-bottom: 5rem;
 }
+
+/* Personal details block spacing and typography */
+.personal p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+}
+
+/* Centered title for the bio-data heading */
+.bio-title {
+    text-align: center;
+    margin: 1rem 0 0.5rem;
+}
