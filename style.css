@@ -120,3 +120,8 @@ h2 {
     text-align: center;
     margin: 1rem 0 0.5rem;
 }
+
+/* Small gap after the thesis title line */
+.thesis-title {
+    margin-bottom: 0.6rem;
+}
