@@ -117,6 +117,7 @@ a:hover {
 
 section {
     margin-bottom: 3rem;
+    width: 100%;
 }
 
 .wrapper {
@@ -260,7 +261,6 @@ h2 {
 @media print {
     @page {
         margin: 1cm;
-        /* Reduced margins */
         size: auto;
     }
 
@@ -289,18 +289,10 @@ h2 {
         border-bottom: none;
     }
 
-    /* Minimal vertical gaps for print */
+    /* Allowed to break across pages to fill gaps */
     section {
         margin-bottom: 1rem;
-        /* Significantly reduced from 1.5/3rem */
-        page-break-inside: avoid;
-    }
-
-    /* Ensure the wrapped group stays together */
-    .keep-together {
-        page-break-inside: avoid;
-        break-inside: avoid;
-        display: block;
+        page-break-inside: auto;
     }
 
     h2 {
@@ -308,6 +300,8 @@ h2 {
         margin-bottom: 0.5rem;
         border-bottom: 1px solid #aaa;
         padding-bottom: 0.2rem;
+        page-break-after: avoid;
+        /* Keep header with content */
     }
 
     .name {
@@ -331,7 +325,6 @@ h2 {
     .wrapper {
         gap: 1rem;
         margin-bottom: 0.6rem;
-        /* Tight spacing for items */
     }
 
     /* Ensure text is strictly black for clarity */
@@ -345,7 +338,6 @@ h2 {
         color: #000 !important;
     }
 
-    /* Hide empty spacers */
     .vspace {
         display: none;
     }
