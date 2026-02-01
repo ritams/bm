@@ -1,0 +1,362 @@
+/* Global Reset & Editor Layout */
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --primary-color: #0ea5e9;
+    --hover-color: #f1f5f9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #e5e5e5;
+}
+
+.app-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    /* Default variables if not set inline */
+    --cv-accent: #1a1a1a;
+    --cv-align: center;
+}
+
+.preview-pane {
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Floating Actions (Print) */
+.floating-actions {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-fab {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-fab:hover {
+    transform: translateY(-2px);
+    background: #000;
+}
+
+/* Design Menu Styles */
+.design-menu-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.design-toggle {
+    background: white;
+    color: #1a1a1a;
+}
+
+.design-toggle:hover {
+    background: #f9fafb;
+}
+
+.design-toggle.active {
+    background: #1a1a1a;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.design-panel {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.design-panel h3 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.design-section {
+    margin-bottom: 20px;
+}
+
+.design-section label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 10px;
+}
+
+.toggle-group {
+    display: flex;
+    background: #f3f4f6;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.toggle-group button {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 6px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #6b7280;
+    transition: all 0.15s;
+}
+
+.toggle-group button.active {
+    background: white;
+    color: #111827;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+}
+
+.color-grid {
+    display: flex;
+    gap: 10px;
+}
+
+.color-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 1px #e5e7eb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.1s;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+}
+
+.color-btn.active {
+    box-shadow: 0 0 0 2px #1a1a1a;
+}
+
+/* Editable Text Styles (Seamless) */
+.editable-display {
+    cursor: text;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.2s;
+    border-radius: 2px;
+}
+
+.editable-display:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    background-color: color-mix(in srgb, var(--cv-accent) 5%, transparent);
+    border-bottom-color: #cbd5e1;
+}
+
+.editable-input {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    outline: none;
+    /* Minimal underline to show editing state without breaking flow */
+    border-bottom: 1px solid var(--cv-accent);
+    margin: 0;
+}
+
+.editable-input.multiline {
+    min-height: 1em;
+    resize: none;
+    overflow: hidden;
+    display: block;
+}
+
+.placeholder {
+    opacity: 0.4;
+    font-style: italic;
+}
+
+/* Action Overlay & Buttons */
+.relative-section .group {
+    position: relative;
+    transition: background 0.2s;
+    padding: 4px;
+    /* Reduced padding */
+    border-radius: 4px;
+    margin: 0 -4px;
+    /* Counteract padding */
+}
+
+/* Make hover effect extremely subtle */
+.relative-section .group:hover {
+    background-color: rgba(0, 0, 0, 0.015);
+}
+
+.action-overlay {
+    position: absolute;
+    left: -28px;
+    /* Move to left to avoid covering content on right */
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+}
+
+.group:hover .action-overlay {
+    opacity: 1;
+}
+
+.action-overlay button {
+    background: white;
+    color: #ef4444;
+    border: 1px solid #fee2e2;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.action-overlay button:hover {
+    background: #fee2e2;
+}
+
+.add-btn-container {
+    margin-top: 5px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    /* Maintain spacing */
+}
+
+.education:hover .add-btn-container,
+.awards:hover .add-btn-container,
+.publications:hover .add-btn-container {
+    opacity: 1;
+}
+
+.add-btn-container button {
+    background: white;
+    border: 1px dashed #cbd5e1;
+    color: #94a3b8;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s;
+}
+
+.add-btn-container button:hover {
+    border-color: var(--cv-accent);
+    color: var(--cv-accent);
+    background: #f8fafc;
+}
+
+/* Print Overrides - STRICT */
+@media print {
+    body {
+        background: white;
+        overflow: visible;
+    }
+
+    .app-container {
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+
+    .preview-pane {
+        display: block;
+    }
+
+    /* Hide UI */
+    .no-print,
+    .action-overlay,
+    .add-btn-container,
+    .floating-actions,
+    .design-menu-container {
+        display: none !important;
+    }
+
+    /* Reset Editable Styles */
+    .editable-display {
+        border: none !important;
+        background: transparent !important;
+        padding: 0;
+    }
+
+    .editable-display:hover {
+        background: transparent !important;
+    }
+
+    .group {
+        padding: 0;
+        margin: 0;
+    }
+
+    .relative-section .group:hover {
+        background: transparent !important;
+    }
+}

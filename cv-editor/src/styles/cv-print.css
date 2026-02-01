@@ -1,0 +1,265 @@
+/* CV Print Styles - Scoped */
+
+.cv-root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    /* Use dynamic variables with fallbacks */
+    --color-text: #1a1a1a;
+    --color-text-light: #555;
+    --color-border: #e0e0e0;
+
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.cv-paper {
+    width: 100%;
+    /* Max width handled by container or print */
+    max-width: 800px;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    min-height: 1100px;
+}
+
+/* Typography Scoping */
+.cv-root h1 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    color: #000;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+/* Dynamic Accent Color Application */
+.cv-root h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    color: var(--cv-accent, #000);
+    /* Use accent color */
+    font-weight: 600;
+}
+
+/* Dynamic Divider Styles */
+.cv-root.divider-double h2 {
+    border-bottom: 3px double var(--color-border);
+}
+
+.cv-root.divider-none h2 {
+    border-bottom: none;
+}
+
+/* Dynamic Header Alignment */
+.cv-root.header-left .name {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.cv-root.header-left .bio-title {
+    text-align: left;
+}
+
+.cv-root.header-left .contact {
+    justify-content: flex-start;
+}
+
+
+.cv-root a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.cv-root a:hover {
+    border-bottom-color: var(--color-text);
+}
+
+.cv-root p {
+    margin-bottom: 0.5rem;
+}
+
+/* Sections & Layout */
+.cv-root section {
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.cv-root .wrapper {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.cv-root .left {
+    width: 25%;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.cv-root .right {
+    flex-grow: 1;
+}
+
+.cv-root .name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    text-align: center;
+    width: 100%;
+}
+
+.cv-root .institute {
+    font-weight: 400;
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.cv-root .contact {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: var(--color-text-light);
+}
+
+.cv-root .contact div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cv-root .contact img {
+    height: 16px;
+    width: 16px;
+    opacity: 0.8;
+}
+
+.cv-root .degree {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.3rem;
+}
+
+.cv-root .place {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+    line-height: 1.6;
+}
+
+.cv-root .percentage {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.3rem;
+}
+
+.cv-root .first-name {
+    color: var(--cv-accent, #000);
+    /* Accent on first name */
+    font-weight: 400;
+}
+
+.cv-root .publication {
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.cv-root .publication a {
+    display: block;
+    color: var(--color-text);
+}
+
+.cv-root .bold {
+    font-weight: 600;
+}
+
+.cv-root .personal p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.cv-root .bio-title {
+    text-align: center;
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    border: none;
+    font-family: var(--font-body);
+}
+
+.cv-root .thesis-title {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@container (max-width: 600px) {
+    .cv-root .wrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cv-root .left {
+        width: 100%;
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* Print Overrides */
+@media print {
+    .cv-root {
+        width: 100%;
+        display: block;
+    }
+
+    .cv-paper {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+        min-height: auto;
+    }
+
+    .cv-root section {
+        margin-bottom: 1rem;
+        page-break-inside: auto;
+    }
+
+    .cv-root h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.2rem;
+        page-break-after: avoid;
+    }
+
+    .cv-root .wrapper {
+        gap: 1rem;
+        margin-bottom: 0.6rem;
+    }
+}
