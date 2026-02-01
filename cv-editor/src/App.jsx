@@ -56,6 +56,10 @@ function App() {
     reader.readAsText(file);
   };
 
+  const handleReset = () => {
+    setCvData(initialData);
+  };
+
   return (
     <div className="app-container" style={{
       '--cv-accent': config.accentColor,
@@ -66,6 +70,7 @@ function App() {
         setConfig={setConfig}
         onExport={handleExport}
         onImport={handleImport}
+        onReset={handleReset}
       />
       <div className="preview-pane">
         <CVPreview data={cvData} setData={setCvData} config={config} />

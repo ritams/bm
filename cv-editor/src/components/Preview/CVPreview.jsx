@@ -63,7 +63,7 @@ export const CVPreview = ({ data, setData, config }) => {
     // Helper component for action buttons
     const ActionOverlay = ({ section, index, isFirst, isLast }) => (
         <div className="action-overlay no-print">
-            <div className="action-col">
+            <div className="action-col" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 <button onClick={() => removeItem(section, index)} title="Delete"><Trash2 size={14} /></button>
                 {!isFirst && <button onClick={() => moveItem(section, index, 'up')} title="Move Up"><ArrowUp size={14} /></button>}
                 {!isLast && <button onClick={() => moveItem(section, index, 'down')} title="Move Down"><ArrowDown size={14} /></button>}
@@ -106,7 +106,8 @@ export const CVPreview = ({ data, setData, config }) => {
                             <EditableText
                                 value={data.personal.scholarLink}
                                 onSave={(val) => updatePersonal('scholarLink', val)}
-                                placeholder="Google Scholar URL"
+                                placeholder="Google Scholar"
+                                html={true}
                             />
                         </div>
                         <div>
@@ -123,6 +124,7 @@ export const CVPreview = ({ data, setData, config }) => {
                                 value={data.personal.website}
                                 onSave={(val) => updatePersonal('website', val)}
                                 placeholder="Website URL"
+                                html={true}
                             />
                         </div>
                     </div>

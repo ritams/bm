@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Palette, Layout, Type, X, ChevronDown, Check, Download, Upload, FileJson } from 'lucide-react';
+import { Palette, Layout, Type, X, ChevronDown, Check, Download, Upload, FileJson, RotateCcw } from 'lucide-react';
+import { initialData } from '../../data/initialData';
 
-export const DesignMenu = ({ config, setConfig, onExport, onImport }) => {
+export const DesignMenu = ({ config, setConfig, onExport, onImport, onReset }) => {
     const [isOpen, setIsOpen] = useState(false);
     const fileInputRef = useRef(null);
 
@@ -40,6 +41,16 @@ export const DesignMenu = ({ config, setConfig, onExport, onImport }) => {
                             </button>
                             <button className="action-btn" onClick={() => fileInputRef.current.click()} style={{ background: '#f3f4f6', border: '1px solid #e5e7eb' }}>
                                 <Upload size={14} /> Restore
+                            </button>
+                            <button
+                                className="action-btn"
+                                onClick={() => {
+                                    if (confirm('Reset all content to defaults? This will erase your changes.')) {
+                                        onReset();
+                                    }
+                                }}
+                                style={{ background: '#fee2e2', border: '1px solid #fecaca', color: '#dc2626' }}>
+                                <RotateCcw size={14} /> Reset
                             </button>
                             <input
                                 type="file"

@@ -4,8 +4,8 @@ export const initialData = {
         title: "Project Research Scientist",
         institute: "Indian Institute of Technology Bombay",
         email: "mondal.barnali@students.iiserpune.ac.in",
-        website: "barnalimondal.com",
-        scholarLink: "https://scholar.google.co.in/citations?user=JZnmYAIAAAAJ&hl=en",
+        website: `<a href="https://barnalimondal.com">barnalimondal.com</a>`,
+        scholarLink: `<a href="https://scholar.google.co.in/citations?user=JZnmYAIAAAAJ&hl=en">Google Scholar</a>`,
         address: {
             permanent: "Vill.: Deshalpur; P.O.: Sabaldaha; P.S.: Khargram; Dist.: Murshidabad; West Bengal, 742157",
             dob: "01.07.1996",
